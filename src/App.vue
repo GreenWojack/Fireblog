@@ -11,6 +11,8 @@
 <script>
 import Footer from './components/Footer.vue';
 import Navigation from './components/Navigation.vue'
+import firebase from "firebase/app"
+import "firebase/auth"
 export default {
   name: "app",
   components: {
@@ -23,6 +25,13 @@ export default {
     };
   },
   created() {
+    console.log(firebase.auth().currentUser.uid);
+    firebase.auth().onAuthStateChanged((user)=>{
+      this.$store.commit("UPDATE_USER", user)
+      if(user){
+        this.$store.dispatch("getCurrentUser")
+      }
+    })
     this.checkRoute();
   },
   mounted() {},
@@ -105,6 +114,11 @@ button,
   &:hover {
     background-color: rgba(48, 48, 48, 0.7);
   }
+}
+.error{
+  text-align: center;
+  font-size: 12px;
+  color: red;
 }
 .button-ghost {
   color: #000;
