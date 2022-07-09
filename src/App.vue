@@ -25,7 +25,6 @@ export default {
     };
   },
   created() {
-    console.log(firebase.auth().currentUser.uid);
     firebase.auth().onAuthStateChanged((user)=>{
       this.$store.commit("UPDATE_USER", user)
       if(user){
