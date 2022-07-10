@@ -28,7 +28,7 @@ export default {
     firebase.auth().onAuthStateChanged((user)=>{
       this.$store.commit("UPDATE_USER", user)
       if(user){
-        this.$store.dispatch("getCurrentUser")
+        this.$store.dispatch("getCurrentUser", user)
       }
     })
     this.checkRoute();
