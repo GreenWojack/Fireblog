@@ -19,6 +19,9 @@ npm run build
 ```
 npm run lint
 ```
+### Deployed link 
+
+https://fireblog-40ca4.web.app/
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
